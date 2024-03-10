@@ -1,4 +1,4 @@
-**Title: TypeScript Calculator CLI Documentation**
+# TypeScript Calculator CLI Documentation
 
 **Introduction:**
 This documentation serves as a guide for understanding and utilizing a calculator program developed using TypeScript with a Command Line Interface (CLI). The calculator program allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
