@@ -1,30 +1,65 @@
 import inquirer  from "inquirer";
 
 async function getUserInput() {
-    const numOne = await inquirer.prompt({
-        name: "num",
-        type: "number",
-        message: "Enter Your First Number"
+    let userInputContinue: boolean = true;
+    let numOne: number = 0;
+    let symbol: string = '';
+    let numTwo: number = 0;
+
+    do {
+        const userInputOne = await inquirer.prompt({
+            name: "num",
+            type: "number",
+            message: "Enter Your First Number"
+        });
+
+        if (isNaN(userInputOne.num) ) {
+            console.log(`invalid number please try again`);
+        } else {
+            numOne = userInputOne.num;
+            userInputContinue = false;
+        }
+    } while (userInputContinue);
+
+    userInputContinue = true;
     
-    });
+    do {
+        const arithmeticSymbol = await inquirer.prompt({
+            name: "symbol",
+            type: "input",
+            message: "Enter your arithmetic symbol"
+        });
     
-    const symbol = await inquirer.prompt({
-        name: "arithmeticSymbol",
-        type: "input",
-        message: "Enter your arithmetic symbol"
-    });
-    
-    const numTwo = await inquirer.prompt({
-        name: "num",
-        type: "number",
-        message: "Enter Your Second Number"
-    
-    });
+        if (arithmeticSymbol.symbol === "+" || arithmeticSymbol.symbol === "-" || 
+            arithmeticSymbol.symbol === "*" || arithmeticSymbol.symbol === "/") {
+                symbol = arithmeticSymbol.symbol;
+                userInputContinue = false;
+        } else {
+            console.log(`Invalid arithmetic symbol, please try again`);
+        }
+    } while (userInputContinue);
+
+    userInputContinue = true;
+
+    do {
+        const userInputTwo = await inquirer.prompt({
+            name: "num",
+            type: "number",
+            message: "Enter Your Second Number"
+        });
+
+        if (isNaN(userInputTwo.num)) {
+            console.log(`invalid number please try again`);
+        } else {
+            numTwo = userInputTwo.num;
+            userInputContinue = false;
+        }
+    } while (userInputContinue);
 
     return {
-        numOne: numOne.num,
-        symbol: symbol.arithmeticSymbol,
-        numTwo: numTwo.num
+        numOne: numOne,
+        symbol: symbol,
+        numTwo: numTwo
     }
 }
 
@@ -64,7 +99,7 @@ async function calculate() {
             choices: ["Yes", "No"]
         });
 
-        continueCalculation = answer.condition === "Yes";
+        continueCalculation = answer.continue === "Yes";
     } while (continueCalculation);
 }
 
