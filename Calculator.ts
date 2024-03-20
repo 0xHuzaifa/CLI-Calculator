@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import inquirer  from "inquirer";
+import inquirer from "inquirer";
 
 async function getUserInput() {
     let userInputContinue: boolean = true;
