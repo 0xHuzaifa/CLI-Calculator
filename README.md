@@ -1,51 +1,40 @@
-# TypeScript Calculator CLI Documentation
+# Command Line Interface Calculator Documentation
 
-**Introduction:**
-This documentation serves as a guide for understanding and utilizing a calculator program developed using TypeScript with a Command Line Interface (CLI). The calculator program allows users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
+## Overview
+This project implements a simple command line interface (CLI) calculator using TypeScript. Users can input two numbers and an arithmetic operation symbol, and the calculator will perform the corresponding calculation.
 
-**Installation:**
-Before using the calculator program, ensure that TypeScript and inquirer are installed on your system. You can install them using the following commands:
+## Installation
+To use the calculator, you need to install TypeScript and the Inquirer package. You can do this by running the following commands in your terminal:
 
-```
+```bash
 npm install -g typescript
 npm install inquirer
 npm install --save-dev @types/inquirer
 ```
 
-**Usage:**
-1. **Understanding the Code:**
-   The calculator program is written in TypeScript and utilizes the inquirer library for obtaining user input via the command line interface.
-   
-2. **Reading the Code:**
-   It is recommended to carefully read the provided TypeScript code to understand its functionality. Pay attention to the structure, function calls, and logic implemented.
+## Usage
+1. After installing the required packages, you can run the calculator using the following command:
+    ```bash
+    ts-node <path_to_your_file>
+    ```
+    Replace `<path_to_your_file>` with the path to your TypeScript file.
 
-3. **Executing the Program:**
-   After understanding the code, execute the program by running the TypeScript file. Use the following command:
-   
-   ```
-   tsc filename.ts && node filename.js
-   ```
-   Replace `filename.ts` with the name of your TypeScript file.
+2. Once the calculator is running, follow the prompts to input the first number, arithmetic symbol, and second number.
 
-4. **Performing Calculations:**
-   Once the program is running, the user will be prompted to enter the first number, followed by an arithmetic symbol (+, -, *, or /), and then the second number. After entering the inputs, the program will display the result of the calculation.
+3. The calculator will display the result of the calculation based on the input provided.
 
-5. **Continuing Calculations:**
-   After each calculation, the user is given the option to perform another calculation or exit the program.
+4. After each calculation, you will be asked if you want to perform another calculation. Choose "Yes" to continue or "No" to exit the calculator.
 
-**Code Explanation:**
-- **getUserInput():** This function prompts the user to enter the first number, arithmetic symbol, and the second number. It returns an object containing these inputs.
-- **calculate():** This function orchestrates the calculation process. It repeatedly calls getUserInput() to get user input and performs calculations based on the provided numbers and arithmetic symbol.
+## Features
+- Supports addition (+), subtraction (-), multiplication (*), and division (/) operations.
+- Validates user input to ensure it is a valid number and a valid arithmetic symbol.
+- Allows users to perform multiple calculations in a single session.
 
-**Arithmetic Operations:**
-The calculator supports the following arithmetic operations:
-- Addition (+)
-- Subtraction (-)
-- Multiplication (*)
-- Division (/)
+## Code Explanation
+- The `getUserInput` function prompts the user to enter the first number, arithmetic symbol, and second number. It validates each input to ensure it is valid.
+- The `calculate` function calls `getUserInput` to get user input and then performs the calculation based on the input provided.
+- The `switch` statement inside the `calculate` function determines the operation to perform based on the arithmetic symbol.
+- The calculator continues to prompt the user for input and perform calculations until the user chooses to exit.
 
-**Error Handling:**
-The program includes basic error handling for invalid arithmetic symbols.
-
-**Conclusion:**
-This documentation provides an overview of the TypeScript calculator program with a Command Line Interface. By following the installation steps and understanding the code, users can utilize the calculator to perform basic arithmetic calculations conveniently from the command line.
+## Conclusion
+This CLI calculator provides a simple and user-friendly way to perform basic arithmetic calculations from the command line. It is written in TypeScript, making it easy to understand and maintain. Feel free to customize and extend the calculator according to your needs. If you have any questions or feedback, please reach out to the developer, Huzaifa Ahmed.
